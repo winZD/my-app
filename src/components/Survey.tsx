@@ -8,7 +8,7 @@ const Survey = () => {
       <button
         onClick={() => {
           alert("You clicked on yes");
-          navigate(-1);
+          navigate("/");
         }}
       >
         Da
@@ -16,7 +16,7 @@ const Survey = () => {
       <button
         onClick={() => {
           alert("You clicked on no");
-          navigate(-1);
+          navigate("/");
         }}
       >
         Ne

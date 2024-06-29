@@ -16,7 +16,7 @@ const Survey = () => {
       <button
         onClick={() => {
           alert("You clicked on no");
-          navigate("/");
+          navigate("/home");
         }}
       >
         Ne

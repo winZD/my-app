@@ -7,6 +7,7 @@ import Survey from "./components/Survey";
 
 function App() {
   const [count, setCount] = useState(0);
+  /* Adding Hash router */
 
   return (
     <Router>

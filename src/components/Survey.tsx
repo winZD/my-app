@@ -27,7 +27,9 @@ const Survey = () => {
       <p>{data.description}</p>
       <p>{index}</p>
       <p>
-        {"Local storage: " + JSON.parse(localStorage.getItem("data") || "")}
+        {"Local storage: " + localStorage.getItem("data") !== null
+          ? localStorage.getItem("data")
+          : "No local storage"}
       </p>
 
       <button

@@ -43,7 +43,7 @@ function App() {
             </>
           }
         />
-        <Route path="/survey" element={<Survey />} />
+        <Route path="/survey" element={<Survey props={count} />} />
       </Routes>
     </Router>
   );

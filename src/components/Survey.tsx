@@ -1,35 +1,45 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const Survey = ({ props }: { props: number }) => {
-  console.log(props);
+const Survey = () => {
+  // Initialize state for data and index
   const [data, setData] = useState({ description: "" });
+  const [index, setIndex] = useState(1); // State to manage the current index
+
   useEffect(() => {
-    fetch(`https://fakestoreapi.com/products/${Math.floor(Math.random() * 10)}`)
+    // Fetch initial data based on the starting index
+    fetchData(index);
+  }, [index]); // Re-fetch data whenever the index changes
+
+  const navigate = useNavigate();
+
+  // Function to fetch data based on the current index
+  const fetchData = (currentIndex: number) => {
+    fetch(`https://fakestoreapi.com/products/${currentIndex}`)
       .then((res) => res.json())
       .then((json) => setData(json));
-  }, []);
+  };
 
-  /* { status: 'ok', method: 'GET' } */
-  const navigate = useNavigate();
   return (
     <div style={{ border: "1px solid black", padding: 20 }}>
       <p>{data.description}</p>
+      <p>{index}</p>
       <button
         onClick={() => {
-          alert("You clicked on yes");
-          navigate("/");
+          setIndex((prevIndex: number) => prevIndex + 1); // Increment index
+          fetchData(index + 1); // Fetch next item
         }}
       >
-        Da
+        Next
       </button>
       <button
+        disabled={index === 1}
         onClick={() => {
-          alert("You clicked on no");
-          navigate("/home");
+          setIndex((prevIndex: number) => prevIndex - 1); // Decrement index
+          fetchData(index - 1); // Fetch previous item
         }}
       >
-        Ne
+        Previous
       </button>
     </div>
   );

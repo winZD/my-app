@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 const Survey = () => {
   // Initialize state for data and index
@@ -11,7 +10,7 @@ const Survey = () => {
     fetchData(index);
   }, [index]); // Re-fetch data whenever the index changes
 
-  const navigate = useNavigate();
+  /* const navigate = useNavigate(); */
 
   // Function to fetch data based on the current index
   const fetchData = (currentIndex: number) => {

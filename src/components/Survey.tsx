@@ -26,6 +26,9 @@ const Survey = () => {
     <div style={{ border: "1px solid black", padding: 20 }}>
       <p>{data.description}</p>
       <p>{index}</p>
+      <p>
+        {"Local storage: " + JSON.parse(localStorage.getItem("data") || "")}
+      </p>
 
       <button
         onClick={() => {

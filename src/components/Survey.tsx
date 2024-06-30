@@ -10,6 +10,9 @@ const Survey = () => {
     fetchData(index);
   }, [index]); // Re-fetch data whenever the index changes
 
+  useEffect(() => {
+    localStorage.setItem("data", JSON.stringify(index));
+  }, [index]);
   /* const navigate = useNavigate(); */
 
   // Function to fetch data based on the current index
@@ -37,7 +40,6 @@ const Survey = () => {
         onClick={() => {
           setIndex((prevIndex: number) => prevIndex - 1); // Decrement index
           fetchData(index - 1); // Fetch previous item
-          localStorage.setItem("data", JSON.stringify(index));
         }}
       >
         Previous

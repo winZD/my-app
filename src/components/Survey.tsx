@@ -23,6 +23,7 @@ const Survey = () => {
     <div style={{ border: "1px solid black", padding: 20 }}>
       <p>{data.description}</p>
       <p>{index}</p>
+
       <button
         onClick={() => {
           setIndex((prevIndex: number) => prevIndex + 1); // Increment index
@@ -36,6 +37,7 @@ const Survey = () => {
         onClick={() => {
           setIndex((prevIndex: number) => prevIndex - 1); // Decrement index
           fetchData(index - 1); // Fetch previous item
+          localStorage.setItem("data", JSON.stringify(index));
         }}
       >
         Previous
